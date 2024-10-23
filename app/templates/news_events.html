@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MNETC - The Moroccan National Energy Transition Consortium</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/images/items/favicon.png" rel="icon">
+  <link href="/static/images/items/favicon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css?{% now 'U' %}" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Template Main CSS File -->
+     <link href="/static/css/base.css?{% now 'U' %}" rel="stylesheet">
+<link href="/static/css/events_news.css?{% now 'U' %}" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="/static/images/items/favicon.png" alt="">
+
+      </a>
+
+        <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'news_events' %}">News & Events</a></li>
+            <li class="dropdown"><a href="#"><span>Network</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="{% url 'governance' %}">Governance</a></li>
+                  <li><a href="{% url 'management' %}">Management</a></li>
+                  <li><a href="{% url 'members' %}">Members</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'library' %}">Library</a></li>
+            <li><a href="{% url 'resource' %}">Resource</a></li>
+            <li><a href="{% url 'join_us' %}">Join us</a></li>
+            {% if user.is_authenticated %}
+                {% if user.username == 'mnetc' %}
+                    <li><a href="{% url 'applications' %}">Applications</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+<section>
+   <div class="swiper-container">
+      
+        <div class="swiper-wrapper">
+            {% for news in news %}
+            <div class="swiper-slide">
+                <div class="card">
+                    <img src="{{news.Image.url}}" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">{{ news.Title }}</p>
+                        <p class="link" ><a href="{% url 'news_or_event' news.id %}">Read More</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    </section>
+
+  <section id="container">
+        <div class="section-title" style="padding-bottom:0">
+          <h2 style="">Events</h2>
+        </div>
+
+        <div class="events_news">
+            <div class="tabs">
+                <div class="tab active" id="past-events-tab" onclick="Switch('past-events-tab', ['future-events-tab'])">Past Events</div>
+                <div class="tab" id="future-events-tab" onclick="Switch('future-events-tab', ['past-events-tab'])">Future Events</div>
+            </div>
+        <div class="content" id="past-events">
+            {% for event in past_events %}
+             <a href="{% url 'news_or_event' event.id %}">
+                    <div class="event">
+                        <img src="{{event.Image.url}}" alt="Event Image" style="border:1px solid">
+                        <div class="details">
+                            <a href="{% url 'news_or_event' event.id %}" class="event-link">
+                            <h3>{{event.Title}}</h3>
+                            </a>
+                            <p><i class="fas fa-calendar-alt" style="margin-right:10px"></i>{{event.Date}}</p>
+                            <p><i class="fas fa-globe" style="margin-right:10px"></i>{{event.Place}}</p>
+                        </div>
+                    </div>
+                    </a>
+            {% endfor %}
+        </div>
+        <div class="content" id="future-events" style="display: none;">
+            {% for event in future_events %}
+             <a href="{% url 'news_or_event' event.id %}">
+                    <div class="event">
+                        <img src="{{event.Image.url}}" alt="Event Image" style="border:1px solid">
+                        <div class="details">
+                            <a href="{% url 'news_or_event' event.id %}" class="event-link">
+                            <h3>{{event.Title}}</h3>
+                            </a>
+                            <p><i class="fas fa-calendar-alt" style="margin-right:10px"></i>{{event.Date}}</p>
+                            <p><i class="fas fa-globe" style="margin-right:10px"></i>{{event.Place}}</p>
+                        </div>
+                    </div>
+                    </a>
+            {% endfor %}
+
+        </div>
+    </div>
+      </section>
+
+
+<!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3" style="">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              Lot 660, Hay Moulay Rachid,43150  <br>
+              Ben Guerir, Morocco <br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>
+               +212 525 072 855<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-envelope icon"></i>
+          <div>
+            <h4>Email</h4>
+            <p>
+              mnetc@um6p.ma <br>
+            </p>
+          </div>
+        </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="https://www.facebook.com/UM6P1/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/um6p_officiel/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/um6p/?originalSubdomain=ma" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/aos/aos.js"></script>
+  <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/vendor/php-email-form/validate.js"></script>
+
+
+
+  <!-- Template Main JS File -->
+  <script src="/static/js/main.js?{% now 'U' %}"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/js/news_events.js?{% now 'U' %}"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script>
+
+    </script>
+
+</body>
+
+</html>

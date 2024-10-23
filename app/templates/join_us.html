@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MNETC - The Moroccan National Energy Transition Consortium</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/images/items/favicon.png" rel="icon">
+  <link href="/static/images/items/favicon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+   <link href="/static/vendor/bootstrap/css/bootstrap.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css?{% now 'U' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+
+
+
+<link rel="stylesheet" href="/static/css/popup.css?{% now 'U' %}">
+  <link href="/static/css/join_us.css?{% now 'U' %}" rel="stylesheet">
+<link href="/static/css/base.css?{% now 'U' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+ <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="/static/images/items/favicon.png" alt="">
+
+      </a>
+
+        <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}#home">Home</a></li>
+            <li><a href="{% url 'news_events' %}#home">News & Events</a></li>
+            <li class="dropdown"><a href="#"><span>Network</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="{% url 'governance' %}">Governance</a></li>
+                  <li><a href="{% url 'management' %}">Management</a></li>
+                  <li><a href="{% url 'members' %}">Members</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'library' %}">Library</a></li>
+            <li><a href="{% url 'resource' %}">Resource</a></li>
+            <li><a href="{% url 'join_us' %}">Join us</a></li>
+            {% if user.is_authenticated %}
+                {% if user.username == 'mnetc' %}
+                    <li><a href="{% url 'applications' %}">Applications</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+
+   <main id="join_us" style="margin-top:50px;">
+
+
+
+   <!-- Faq 2 Section -->
+    <section id="faq-2" class="faq-2 section" style="background-color:white; padding-top:70px">
+
+      <!-- Section Title -->
+      <div class="container section-title" >
+        <h2>ADMISSION CRITERIA</h2>
+        <p>The MNETC Consortium welcomes individuals and institutions to join our community of experts, researchers, and professionals dedicated to advancing materials science, energy generation, and related technologies. To maintain the quality and mission alignment of our consortium, membership is subject to the following admission criteria:</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                <h3>01&nbsp;&nbsp;Educational Qualifications</h3>
+                <div class="faq-content">
+                  <p>Possession of a Ph.D. or equivalent advanced degree in materials science, energy, or a closely related field.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>02&nbsp;&nbsp;Professional Background</h3>
+                <div class="faq-content">
+                  <p>A background in materials science, energy, or a related field. Experience in research, innovation, or industry in these domains.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>03&nbsp;&nbsp;Affiliation </h3>
+                <div class="faq-content">
+                  <p>Membership or affiliation with a recognized Moroccan institution, university, research center, or industry organization.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>04&nbsp;&nbsp;Expertise </h3>
+                <div class="faq-content">
+                  <p>Demonstrated expertise or contributions in materials science, energy generation, or related technologies. A track record of research publications, patents, or significant projects in these fields.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>05&nbsp;&nbsp;Commitment </h3>
+                <div class="faq-content">
+                  <p>Commitment to actively engage in collaborative research projects and consortium activities. Willingness to contribute to the consortium's objectives and mission.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>06&nbsp;&nbsp;Diversity </h3>
+                <div class="faq-content">
+                  <p>Encouragement of a diverse range of members from different backgrounds, including academia, industry, and research. Consideration for members at various career stages, from postdocs to seasoned professionals.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item" >
+                <h3>07&nbsp;&nbsp;Recommendations and Referrals </h3>
+                <div class="faq-content">
+                  <p>Letters of recommendation or referrals from established members or industry professionals may be requested during the admission process.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq 2 Section -->
+
+
+
+
+  <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table" style="padding-top:20px;">
+      <div class="container" >
+
+        <div class="container section-title" style="padding:0">
+        <h2>Join us</h2>
+      </div><!-- End Section Title -->
+
+        <div class="row g-0">
+
+          <div class="col-lg-4 reservation-img" style="background-image: url(/static/images/items/slide-1.jpg);" ></div>
+
+          <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+            <form  method="POST" class="php-email-form"  enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="first name" class="form-control" id="first name" placeholder="First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required>
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="last name" id="last name" placeholder="Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="phone number" id="phone number" placeholder="Phone Number" data-rule="minlen:1" data-msg="Please enter at least 10 numbers">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="affiliation" id="affiliation" placeholder="Affiliation" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="research area" class="form-control" id="research area" placeholder="Research Area" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="position" id="position" placeholder="Position" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <label for="cv" class="btn btn-primary" style="background-color:#1f602a">Upload Your CV</label>
+
+                  <input type="file" class="form-control" id="cv" name="cv"  accept=".pdf,.doc,.docx" style="display:none;">
+                  <div class="validate"></div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <label for="image" class="btn btn-primary" style="background-color:#1f602a">Upload Your Image</label>
+
+                  <input type="file" class="form-control" id="image" name="image"  accept=".png,.jpg" style="display:none;">
+                  <div class="validate"></div>
+                </div>
+
+              </div>
+
+              <div class="form-group mt-3">
+                <div class="input-container">
+                <textarea class="form-control" name="biography" id="biography" rows="5" placeholder="Biography (100 to 120 words)"></textarea>
+                <div id="wordCount" class="word-count">0/120</div>
+                </div>
+              </div>
+
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="motivation" id="motivation" rows="5" placeholder="Why are you interested in joining the MNETC Consortium ?"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="contribution" id="contribution" rows="5" placeholder="How can you contribute to our mission ?"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="references" id="references" rows="5" placeholder="References: Provide the names and emails of two professional references."></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message" >Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+              </div>
+              <div id="errorMessages" class="error">hhhhhhhh</div>
+              <div class="text-center"><button type="submit" data-toggle="modal" id="myButton" style="font-size:20px;font-weight:bold">Join us</button></div>
+            </form>
+
+
+          <dialog id="dialog">
+              <p>Your application has been saved successfully.</p>
+              <button  aria-label="close" class="x" id="CloseBtn">❌</button>
+          </dialog>
+          <!--<div id="myModal" class="modal">
+
+
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+              </div>
+
+            </div>-->
+
+
+      </div>
+        </div>
+      </div>
+    </section><!-- End Book A Table Section -->
+
+
+</main>
+
+
+ <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              Lot 660, Hay Moulay Rachid,43150  <br>
+              Ben Guerir, Morocco <br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>
+               +212 525 072 855<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-envelope icon"></i>
+          <div>
+            <h4>Email</h4>
+            <p>
+              mnetc@um6p.ma <br>
+            </p>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="https://www.facebook.com/UM6P1/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/um6p_officiel/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/um6p/?originalSubdomain=ma" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/aos/aos.js"></script>
+  <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="/static/js/main.js"></script>
+<script src="/static/js/join_us.js?{% now 'U' %}"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js?{% now 'U' %}" type="text/javascript"></script>
+
+
+</body>
+
+</html>

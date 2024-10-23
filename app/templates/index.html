@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MNETC - The Moroccan National Energy Transition Consortium</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/images/items/favicon.png" rel="icon">
+  <link href="/static/images/items/favicon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/vendor/bootstrap/css/bootstrap.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/aos/aos.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/glightbox/css/glightbox.min.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/vendor/swiper/swiper-bundle.min.css?{% now 'U' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+    <link href="/static/css/base.css?{% now 'U' %}" rel="stylesheet">
+  <link href="/static/css/index.css?{% now 'U' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="/static/images/items/favicon.png" alt="">
+
+      </a>
+
+        <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}#home">Home</a></li>
+            <li><a href="{% url 'news_events' %}">News & Events</a></li>
+            <li class="dropdown"><a href="#"><span>Network</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="{% url 'governance' %}">Governance</a></li>
+                  <li><a href="{% url 'management' %}">Management</a></li>
+                  <li><a href="{% url 'members' %}">Members</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'library' %}">Library</a></li>
+            <li><a href="{% url 'resource' %}">Resource</a></li>
+           <li><a href="{% url 'join_us' %}">Join us</a></li>
+            {% if user.is_authenticated %}
+                {% if user.username == 'mnetc' %}
+                    <li><a href="{% url 'applications' %}">Applications</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(/static/images/items/slide-1.jpg?{% now 'U' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown" style="color:#042940"><span>MNETC</span></h2>
+              <h2 class="animate__animated animate__fadeInUp" style="color:#042940">The Moroccan National</h2>
+                <h2 class="animate__animated animate__fadeInUp" style="color:#042940">Energy Transition Consortium</h2>
+              <a href="{% url 'join_us' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Join us</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url(/static/images/items/slide-2.jpg?{% now 'U' %})">
+          <div class="carousel-container">
+            <div class="container">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+
+
+     <!-- ======= Thrusts Section ======= -->
+    <section id="thrusts" class="thrusts section-bg" style="padding-top:25px; background-image:url(/static/images/items/motif8.png?{% now 'U' %});background-position: center; background-repeat: no-repeat; background-size: cover; background-color:#eeeeee; padding-bottom:0">
+        <div class="container"  style="margin-top:0px">
+
+        <div class="section-title" style="padding-bottom:0">
+          <h2 style="">Mission</h2>
+        </div>
+
+         <div class="section-header">
+          <p>Establish an innovation and creativity environment to leverage scientific expertise and to contribute to Morocco's energy transition. </p>
+        </div>
+
+
+        <div class="Pillars">
+
+
+        <div class="sections">
+
+            <div class="pillar">
+                <h2><i class="fas fa-project-diagram"></i> Collaborative Research and Innovation</h2>
+                <ul>
+                    <li style="--delay: 1"><i class="fas fa-handshake"></i> Promote collaborative research projects.</li>
+                    <li style="--delay: 2"><i class="fas fa-lightbulb"></i> Address pressing energy challenges through collaborative efforts.</li>
+                    <li style="--delay: 3"><i class="fas fa-flask"></i> Develop cutting-edge technologies in materials science, energy generation, and technologies.</li>
+                    <li style="--delay: 4"><i class="fas fa-money-bill-wave"></i> Secure external financing to ensure long-term sustainability.</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <h2><i class="fas fa-exchange-alt"></i> Knowledge Exchange and Impact</h2>
+                <ul>
+                    <li style="--delay: 1"><i class="fas fa-users"></i> Facilitate cross-disciplinary collaboration among researchers, scientists, and industry experts.</li>
+                    <li style="--delay: 2"><i class="fas fa-share-alt"></i> Promote the energy transition by disseminating knowledge and best practices.</li>
+                    <li style="--delay: 3"><i class="fas fa-chalkboard-teacher"></i> Build capacity through educational initiatives, workshops, seminars, and partnerships.</li>
+                </ul>
+            </div>
+
+            <div class="pillar">
+                <h2><i class="fas fa-graduation-cap"></i> Education and Empowerment</h2>
+                <ul>
+                    <li style="--delay: 1"><i class="fas fa-school"></i> Provide a platform for students and early-career researchers to engage in impactful research.</li>
+                    <li style="--delay: 2"><i class="fas fa-user-tie"></i> Offer mentorship and guidance.</li>
+                    <li style="--delay: 3"><i class="fas fa-tools"></i> Create opportunities for skill development and learning within the fields of materials science and energy.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div class="section-title" style="padding-bottom:0">
+          <h2 style="">Thrusts</h2>
+        </div>
+
+        <div class="section-header" style="">
+          <p>MNETC : Thrusts to address <span style="font-weight:700">Energy Transition</span>  Consortium in Morocco</p>
+        </div>
+
+        <div class="row gy-4">
+          {% for thrust in thrusts %}
+          <div class="col-lg-3 col-md-2 d-flex align-items-stretch"  >
+            <div class="thrust-member" >
+              <div class="member-img">
+                <img src="{{ thrust.Image.url }}?{% now 'U' %}" class="img-fluid" alt="" >
+              </div>
+              <div class="member-info">
+                <h4>{{thrust.Name}}</h4>
+                <p>{{thrust.Description}}</p>
+              </div>
+            </div>
+          </div><!-- End Thrust -->
+            {% endfor %}
+
+
+        </div>
+
+      </div>
+
+
+           <!-- Services Section -->
+    <section id="services" class="services section" style="padding-top:20px;">
+
+       <div class="section-title" style="padding-bottom:0">
+          <h2 style="">Benefits</h2>
+        </div>
+
+        <div class="section-header" style="">
+          <p>Unlock exclusive benefits : Join our thriving community of like-minded individuals</p>
+        </div>
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6"  >
+            <div class="service-item  position-relative" style="background-color:white">
+              <div class="icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3>Join Innovation</h3>
+              <p>Be part of a dynamic community of researchers and push the boundaries of technology.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6"  >
+            <div class="service-item position-relative" style="background-color:white">
+              <div class="icon">
+                <i class="bi bi-globe"></i>
+              </div>
+              <h3>Ecosystem Development</h3>
+              <p>Develop your national and international energy ecosystem.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6"  >
+            <div class="service-item position-relative" style="background-color:white">
+              <div class="icon">
+                <i class="bi bi-eye"></i>
+              </div>
+              <h3>Stay Relevant</h3>
+              <p>Access a large scientific and technological watch and make your research relevant and impactful.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+    </section><!-- End Thrusts Section -->
+
+
+
+
+    <!-- ======= Overview Section ======= -->
+            <section id="overview" class="ttm-row services-section bg-img21 ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix" style="background-image:url(/static/images/items/motif.png?{% now 'U' %}); background-size: cover;background-position: center; ">
+                <div class="container" >
+                    <div class="row no-gutters" style="height:100%;"><!-- row -->
+                        <div class="col-lg-6">
+                            <div class="padding_top20 padding_right60 mb_40 res-1199-padding_left15">
+                                <!-- section title -->
+                                <div class="section-title clearfix">
+                                    <div class="title-header">
+                                        <h2 class="title" style="color:#13caab; font-weight:1000">Overview of MNETC</h2>
+                                    </div>
+                                    <div class="title-desc">
+                                        <h4 style="color:white; text-align: justify;font-size: 22px; line-height: 30px;    font-weight: 400;">
+                                        The Moroccan National <strong>Energy Transition</strong> Consortium <strong>MNETC</strong>. brings together researchers, scholars, industry professionals, and experts from various institutions to exchange and share experiences & knowledge, aiming to push the boundaries of energy science & exploration.
+                                        </h4>
+                                    </div>
+
+                                </div><!-- section title end -->
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6" >
+                            <div class="layer-content padding_left30" style=" margin-top:10%">
+                                            <div class="padding_top70 padding_bottom10" >
+                                                <div class="row " style="width:100%">
+                                                  <div class="col-lg-6 col-md-6 col-sm-12" style="width:100%">
+                                                        <div class="featured-icon-box icon-align-before-content style14 mt-0"  style="width:100%">
+                                                            <!-- ttm-fid -->
+                                                            <div class="ttm-fid inside ttm-fid-with-icon ttm-fid-view-lefticon" style="width:100%">
+                                                                <div class="ttm-fid-icon-wrapper">
+                                                                    <i class="flaticon flaticon-checklist"></i>
+                                                                </div>
+                                                                <div  style="display:flex; justify-content: space-between; width:100%; padding:0 1vh 0 8vw; ">
+                                                                    <div class="ttm-fid-contents" >
+                                                                        <h4 class="ttm-fid-inner" style="color:#13caab; font-size:50px;">
+                                                                            <img src="/static/images/items/icon1.png?{% now 'U' %}" style="width:8vh;">
+                                                                            <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter" style="font-size:7vh"></span>
+                                                                        </h4>
+                                                                        <h3 class="ttm-fid-title" style="color:white; font-size:5vh">Members</h3>
+                                                                    </div>
+                                                                    <div class="ttm-fid-contents" >
+                                                                        <h4 class="ttm-fid-inner" style="color:#13caab; font-size:50px; ">
+                                                                            <img src="/static/images/items/icon2.png?{% now 'U' %}" style="width:8vh;">
+                                                                            <span data-purecounter-start="0" data-purecounter-end="{{nb_thrusts}}" data-purecounter-duration="1" class="purecounter" style="font-size:7vh"></span>
+                                                                        </h4>
+                                                                        <h3 class="ttm-fid-title" style="color:white; font-size:5vh">Thrusts</h3>
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                            </div>
+                                                            <!-- ttm-fid end -->
+                                                        </div>
+                                                  </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                        </div>
+                    </div><!--end row -->
+
+                </div>
+            </section><!-- services-section end  -->
+
+
+
+
+ <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3" style="">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              Lot 660, Hay Moulay Rachid,43150  <br>
+              Ben Guerir, Morocco <br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>
+               +212 525 072 855<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-envelope icon"></i>
+          <div>
+            <h4>Email</h4>
+            <p>
+              mnetc@um6p.ma <br>
+            </p>
+          </div>
+        </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="https://www.facebook.com/UM6P1/" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/um6p_officiel/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/school/um6p/?originalSubdomain=ma" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/aos/aos.js"></script>
+  <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/js/main.js"></script>
+      <script src="/static/js/main1.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+
+</body>
+
+</html>
