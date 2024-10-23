@@ -8,15 +8,16 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "mnetc/wsgi.py"
-    },
-    {
       "src": "/static/(.*)",
       "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "mnetc/wsgi.py"
     }
-  ]
+  ],
+  "static": {
+    "src": "staticfiles",
+    "dest": "/static"
+  }
 }
-
-
-
