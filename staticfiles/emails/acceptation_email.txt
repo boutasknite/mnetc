@@ -1,0 +1,15 @@
+Dear {},
+
+Congratulations!
+
+We are pleased to inform you that your application has been accepted. Welcome aboard!
+
+Here are your login credentials:
+Username: {}
+Password: {}
+
+Please keep this information secure and do not share it with anyone.
+
+To get started, please log in to your account by visiting our website at www.youtube.com.
+
+Best Regards
