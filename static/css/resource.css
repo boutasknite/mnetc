@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.resource {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+    margin: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1 1 calc(23% - 20px); /* Ensure 4 cards fit per row with increased spacing */
+    max-width: calc(23% - 20px); /* Ensure 4 cards fit per row with increased spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px; /* Reduced padding to make the card height shorter */
+    margin: 10px;
+    transition: transform 0.3s;
+    box-sizing: border-box;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.card h3 {
+    font-size: 1em; /* Smaller font size to fit the shorter card */
+    margin-bottom: 10px;
+    font-weight:bold;
+}
+
+.card a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .card {
+        flex: 1 1 calc(31% - 20px); /* 3 cards per row with increased spacing */
+        max-width: calc(31% - 20px); /* Ensure 3 cards fit per row with increased spacing */
+    }
+}
+
+@media (max-width: 992px) {
+    .card {
+        flex: 1 1 calc(48% - 20px); /* 2 cards per row with increased spacing */
+        max-width: calc(48% - 20px); /* Ensure 2 cards fit per row with increased spacing */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%; /* 1 card per row */
+        max-width: 100%; /* Ensure 1 card fits per row */
+    }
+}

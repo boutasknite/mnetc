@@ -1,0 +1,181 @@
+
+
+
+
+.library {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:100px;
+    flex: 1;
+}
+
+.events-wrapper {
+    width: 70%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    min-height:500px;
+}
+
+.events {
+    width: 100%;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.icon img {
+    height: 50px;
+}
+
+.details h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    font-weight:600;
+}
+
+.details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.sidebar {
+    width: 20%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    border: 1px solid #ddd;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.sidebar ul li:hover {
+    color: #1f602a;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.event, .sidebar {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.section-title {
+    text-align: center;
+   padding:0;
+}
+.section-title h2{
+    font-size:20px;
+}
+
+@media (max-width: 768px) {
+    .library {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .event {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .icon {
+        margin-bottom: 0;
+    }
+
+    .events-wrapper, .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .details h3 {
+        font-size: 1em;
+    }
+
+    .details p {
+        font-size: 0.9em;
+    }
+
+    .event {
+        padding: 10px;
+    }
+
+    .sidebar {
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    .events-wrapper {
+        order: 2;
+    }
+}
+
+
+.event-link:hover h3 {
+    color: #1f602a; /* Change color on hover */
+}
