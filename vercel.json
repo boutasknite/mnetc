@@ -10,10 +10,10 @@
     {
       "src": "/(.*)",
       "dest": "mnetc/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "mnetc/static/$1"
     }
-  ],
-  "static": {
-    "src": "staticfiles",
-    "dest": "/static"
-  }
+  ]
 }
